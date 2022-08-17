@@ -26,6 +26,9 @@ class Alunos extends Migration
             'rm' => [
                 'type' => 'int',
             ],
+            'photo' => [
+                'type' => 'text',
+            ],
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('tb_aluno');

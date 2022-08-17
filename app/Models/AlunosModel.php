@@ -22,11 +22,17 @@
         }
 
         public function getAluno($id){
-            return $this->asArray()->where(['id'=>$id])->first();
+            return $this->asArray()->find($id);
         }
 
         public function getParametro($parametro){
-            return $this->db->first($parametro);
+            $data = [];
+
+            for($id = 1; $id <= $parametro; $id++){
+                $data[$id-1] = $this->asArray()->find($id);
+            }
+            
+            return $data;
         }
     } 
 ?>
