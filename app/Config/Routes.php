@@ -39,6 +39,10 @@ $routes->get('/', 'Home::index');
 $routes->get('listar', 'Alunos::listar');
 $routes->get('aluno/(:num)', 'Alunos::aluno/$1');
 $routes->get('alunos/(:num)', 'Alunos::taisAlunos/$1');
+$routes->post('alunos', 'Alunos::novoAluno');
+$routes->delete('deletar/(:num)', 'Produtos::deletarAluno/$1');
+$routes->put('atualizar/(:num)', 'Produtos::atualizarAluno/$1');
+$routes->patch('atualizar/(:num)', 'Produtos::atualizarAluno/$1');
 
 /*
  * --------------------------------------------------------------------

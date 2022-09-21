@@ -29,5 +29,24 @@ class Alunos extends ResourceController
         $data = $this->alunosModel->getParametro($parametro);
         return $this->response->setJson($data);
     }
+
+    public function novoAluno(){
+        $this->alunosModel->save([
+            'name'          => $this->request->getPost('name'),
+            'email'         => $this->request->getPost('email'),
+            'password'      => $this->request->getPost('password'),
+            'rm'            => $this->request->getPost('rm'),
+            'photo'         => $this->require->getPost('photo')
+        ]);
+    }
+
+    public function deletarAluno($id){
+        $this->alunosModel->delete($id);
+    }
+
+    public function atualizarAluno($id){
+        $data = $this->request->getJSON();
+        $this->alunosModel->update($id, $data);
+    }
     
 }
